@@ -1,0 +1,64 @@
+/* TestimonialCard.css */
+.testimonial-card {
+  font-family: 'Lato', Arial, sans-serif;
+  position: relative;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.testimonial-card figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-card h3 {
+  font-family: 'Oswald';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  margin: 0;
+}
+
+.testimonial-card h5 {
+  font-weight: 400;
+  margin: 0;
+  text-transform: uppercase;
+  color: #bbb;
+  letter-spacing: 1px;
+}
+
+.testimonial-card blockquote {
+  font-style: italic;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.testimonial-card .transition-opacity {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.testimonial-card .transition-transform {
+  transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-card .group:hover .transition-transform {
+  transform: translateY(-30%);
+}
+
+.testimonial-card .group:hover .transition-opacity {
+  opacity: 1;
+}

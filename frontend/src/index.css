@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+@import "leaflet/dist/leaflet.css";
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+
+
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a.active hr {
+    display: block;
+}
+
+* {
+  font-family: 'Outfit', sans-serif; /* Menggunakan font utama secara konsisten */
+}
+
+.prata-regular {
+    font-family: "Prata", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .testimonial-container {
+    padding: 40px 20px; /* Menyesuaikan padding atas-bawah dan kiri-kanan */
+  }
+  
+  .testimonial-card {
+    padding: 20px; /* Menyesuaikan padding dalam card */
+    margin: 0 10px; /* Menambah margin kiri dan kanan card */
+    height: 200px; /* Atur tinggi card sesuai kebutuhan */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .testimonial-container .slick-slide {
+    padding: 0 15px;
+  }
+  
+  .testimonial-container .slick-dots li button::before {
+    color: #333;
+  }
+  
+  .testimonial-container .slick-dots .slick-active button::before {
+    color: #007bff;
+  }
+  
+  .testimonial-container .slick-slide div {
+    transition: transform 0.3s ease;
+  }
+  
+  .testimonial-container .slick-slide:hover div {
+    transform: scale(1.02);
+  }
+  
+  .testimonial-container {
+    margin-bottom: 4rem; /* Adjust as needed */
+  }
+  
+  .footer-container {
+    margin-top: 4rem; /* Adjust as needed */
+  }
+
+  /* Navbar.module.css */
+.slideIn {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.slideOut {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+/* styles/glitch.css */
+.glitch {
+  position: relative;
+  color: white;
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background: black;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  z-index: 1;
+  opacity: 0.8;
+  animation: glitch 2s infinite linear;
+}
+
+.glitch::after {
+  clip: rect(0, 900px, 0, 0);
+  animation: glitch 2s infinite linear reverse;
+}
+
+.transition-transform {
+  transition: transform 0.3s ease;
+}
+
+@keyframes glitch {
+  0% { transform: translateX(-10px); }
+  20% { transform: translateX(10px); }
+  40% { transform: translateX(-5px); }
+  60% { transform: translateX(5px); }
+  80% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+
+.order-button {
+      cursor: pointer;
+      font-family: "Lato", sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      display: block;
+      margin: 50px auto;
+      padding: 25px 80px;
+      background: #2c3e50;
+      color: white;
+      border-radius: 20px;
+      letter-spacing: 2px;
+      word-spacing: 5px;
+      position: relative;
+      border: none;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .order-button:hover {
+      border: none;
+      outline: none;
+      box-shadow: 0px 5px 60px #aaa;
+      transform: translateY(-5px) scale(1.05);
+    }
+
+    .order-button:active {
+      border: none;
+      outline: none;
+      box-shadow: none;
+      transform: translateY(0) scale(0.95);
+    }
+
+    .order-button:after {
+      content: "";
+      border: 3px solid #34495e;
+      border-radius: 10px;
+      position: absolute;
+      bottom: -15%;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      width: 40%;
+      transition: all 0.3s;
+    }
+
+    .order-button:hover:after {
+      width: 70%;
+    }
+
+    .order-button:active:after {
+      width: 40%;
+    }
+
+    .order-button:before {
+      content: "";
+      position: absolute;
+      border: 1px solid transparent;
+      top: -15%;
+      left: 10%;
+      width: 0;
+      border-radius: 40%;
+      transform: translate3d(-50%, 0, 0);
+    }
+
+    .order-button:hover:before {
+      border: 1px solid #34495e;
+      animation: backforth 1s ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes backforth {
+      0% {
+        left: 10%;
+        width: 0;
+      }
+      25% {
+        width: 50%;
+      }
+      50% {
+        left: 90%;
+        width: 0;
+      }
+      75% {
+        width: 50%;
+      }
+      100% {
+        left: 10%;
+        width: 0;
+      }
+    }
+
+    .order-button {
+      cursor: pointer;
+      font-family: "Lato", sans-serif;
+      font-weight: 700;
+      font-size: 16px; /* Smaller font size */
+      display: block;
+      margin: 30px auto; /* Adjusted margin for a smaller button */
+      padding: 15px 50px; /* Smaller padding */
+      background: #2c3e50;
+      color: white;
+      border-radius: 15px; /* Slightly smaller border radius */
+      letter-spacing: 1px; /* Reduced letter-spacing */
+      word-spacing: 3px; /* Reduced word-spacing */
+      position: relative;
+      border: none;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .order-button:hover {
+      border: none;
+      outline: none;
+      box-shadow: 0px 3px 40px #aaa; /* Adjusted box-shadow */
+      transform: translateY(-3px) scale(1.05); /* Slightly smaller scale */
+    }
+
+    .order-button:active {
+      border: none;
+      outline: none;
+      box-shadow: none;
+      transform: translateY(0) scale(0.95);
+    }
+
+    .order-button:after {
+      content: "";
+      border: 2px solid #34495e; /* Thinner border */
+      border-radius: 8px; /* Smaller border-radius */
+      position: absolute;
+      bottom: -10%; /* Adjusted position */
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      width: 30%; /* Smaller width */
+      transition: all 0.3s;
+    }
+
+    .order-button:hover:after {
+      width: 50%; /* Smaller hover width */
+    }
+
+    .order-button:active:after {
+      width: 30%; /* Smaller active width */
+    }
+
+    .order-button:before {
+      content: "";
+      position: absolute;
+      border: 1px solid transparent;
+      top: -10%;
+      left: 5%;
+      width: 0;
+      border-radius: 30%;
+      transform: translate3d(-50%, 0, 0);
+    }
+
+    .order-button:hover:before {
+      border: 1px solid #34495e;
+      animation: backforth 1s ease-in-out;
+      animation-iteration-count: infinite;
+    }
+    
+
+    @keyframes backforth {
+      0% {
+        left: 5%;
+        width: 0;
+      }
+      25% {
+        width: 30%;
+      }
+      50% {
+        left: 85%;
+        width: 0;
+      }
+      75% {
+        width: 30%;
+      }
+      100% {
+        left: 5%;
+        width: 0;
+      }
+    }
+
+    /* Mobile-specific styles */
+    @media (max-width: 640px) {
+      .order-button {
+        font-size: 16px; /* Smaller font size for mobile */
+        padding: 15px 40px; /* Smaller padding for mobile */
+        border-radius: 15px; /* Smaller border radius */
+        margin: 30px auto; /* Adjusted margin */
+      }
+
+      .order-button:after {
+        width: 30%; /* Smaller width */
+      }
+
+      .order-button:hover:after {
+        width: 50%; /* Smaller hover width */
+      }
+
+      .order-button:active:after {
+        width: 30%; /* Smaller active width */
+      }
+
+      .order-button:before {
+        left: 5%;
+        width: 0;
+      }
+
+      .order-button:hover:before {
+        border: 1px solid #34495e;
+        animation: backforth-mobile 1s ease-in-out;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes backforth-mobile {
+        0% {
+          left: 5%;
+          width: 0;
+        }
+        25% {
+          width: 30%;
+        }
+        50% {
+          left: 85%;
+          width: 0;
+        }
+        75% {
+          width: 30%;
+        }
+        100% {
+          left: 5%;
+          width: 0;
+        }
+      }
+    }
+  
+  
